@@ -1,7 +1,6 @@
 package io.hhplus.tdd.point;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
@@ -47,9 +46,9 @@ public class PointServiceTest {
         UserPoint result = pointService.charge(id, point);
 
         // then
-        assertNotNull(result);
-        assertEquals(id, result.id());
-        assertEquals(point, result.point());
+        assertThat(result).isNotNull();
+        assertThat(result.id()).isEqualTo(id);
+        assertThat(result.point()).isEqualTo(point);
     }
 
 
@@ -78,9 +77,9 @@ public class PointServiceTest {
         verify(userPointTable).insertOrUpdate(eq(id), pointCaptor.capture());
         Long expectPoint = existingPoint + chargePoint;
         Long actualPoint = pointCaptor.getValue();
-        assertEquals(expectPoint, actualPoint);
-        assertEquals(id, result.id());
-        assertEquals(actualPoint, result.point());
+        assertThat(expectPoint).isEqualTo(actualPoint);
+        assertThat(result.id()).isEqualTo(id);
+        assertThat(result.point()).isEqualTo(actualPoint);
     }
 
 }
