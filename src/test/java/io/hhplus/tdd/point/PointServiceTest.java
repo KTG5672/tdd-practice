@@ -34,6 +34,45 @@ public class PointServiceTest {
     }
 
     /**
+     * 사용자 포인트 조회시 정상적으로 반환한다.
+     * 사용자 포인트 ID 를 사용하여 정보를 조회하고 정상적으로 반환하는지 검증한다.
+     */
+    @Test
+    @DisplayName("사용자 포인트 조회시 정상적으로 반환한다.")
+    void 사용자_포인트_조회시_정상적으로_반환한다() {
+        // given
+        Long id = 1L;
+        UserPoint expected = new UserPoint(id, 1_000, System.currentTimeMillis());
+        given(userPointTable.selectById(id)).willReturn(expected);
+
+        // when
+        UserPoint result = pointService.getUserPoint(id);
+
+        // then
+        assertThat(result.id()).isEqualTo(id);
+        assertThat(result.point()).isEqualTo(expected.point());
+    }
+
+    /**
+     * 포인트 정보가 없는 사용자의 포인트 조회시 0을 반환한다.
+     * 포인트 정보가 없는 사용자의 정보를 조회할시 0포인트로 초기화되어 반환하는지 검증한다.
+     */
+    @Test
+    @DisplayName("포인트 정보가 없는 사용자의 포인트 조회시 0을 반환한다.")
+    void 포인트_정보가_없는_사용자의_포인트_조회시_0을_반환한다() {
+        // given
+        Long id = 1L;
+        given(userPointTable.selectById(id)).willReturn(UserPoint.empty(1L));
+
+        // when
+        UserPoint result = pointService.getUserPoint(id);
+
+        // then
+        assertThat(result.id()).isEqualTo(id);
+        assertThat(result.point()).isEqualTo(0);
+    }
+
+    /**
      * 처음 포인트를 충전하여 충전 정보를 반환한다.
      * 충전 이력이 없는 사용자에 대하여 정상적으로 충전 수행되고 그 결과가 정확히 반환되는지 검증한다.
      */

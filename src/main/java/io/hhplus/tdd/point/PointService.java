@@ -36,4 +36,8 @@ public class PointService {
         long resultPoint = existingPoint - usePoint;
         return userPointTable.insertOrUpdate(id, resultPoint);
     }
+
+    public UserPoint getUserPoint(Long id) {
+        return userPointTable.selectById(id);
+    }
 }
