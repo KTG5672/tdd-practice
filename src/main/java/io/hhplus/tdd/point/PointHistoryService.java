@@ -1,6 +1,7 @@
 package io.hhplus.tdd.point;
 
 import io.hhplus.tdd.database.PointHistoryTable;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,10 @@ public class PointHistoryService {
 
     public void saveUseHistory(long userId, long usePoint) {
         pointHistoryTable.insert(userId, usePoint, TransactionType.USE, System.currentTimeMillis());
+    }
+
+    public List<PointHistory> getHistories(long userId) {
+        return pointHistoryTable.selectAllByUserId(userId);
     }
 
 }
