@@ -26,11 +26,15 @@ public class PointServiceTest {
     @Mock
     PointUsePolicy pointUsePolicy;
 
+    @Mock
+    PointHistoryService pointHistoryService;
+
     PointService pointService;
 
     @BeforeEach
     void setUp() {
-        pointService = new PointService(userPointTable, pointChargePolicy, pointUsePolicy);
+        pointService = new PointService(userPointTable, pointChargePolicy, pointUsePolicy,
+            pointHistoryService);
     }
 
     /**
@@ -185,5 +189,47 @@ public class PointServiceTest {
         assertThat(result.point()).isEqualTo(expectedPoint);
 
     }
+
+    /**
+     * 포인트 충전시 충전 내역이 저장된다.
+     * 포인트 충전시 내역이 저장이 되는지 검증한다
+     */
+    @Test
+    @DisplayName("포인트 충전 시 충전 내역이 저장된다.")
+    void 포인트_충전시_충전_내역이_저장된다() {
+        // given
+        Long id = 1L;
+        Long chargePoint = 2_000L;
+        given(userPointTable.selectById(id)).willReturn(new UserPoint(id, 0, System.currentTimeMillis()));
+
+        // when
+        pointService.charge(id, chargePoint);
+
+        // then
+        verify(pointHistoryService).saveChargeHistory(eq(id), eq(chargePoint));
+
+    }
+
+    /**
+     * 포인트 사용시 사용 내역이 저장된다.
+     * 포인트 사용시 내역이 저장이 되는지 검증한다
+     */
+    @Test
+    @DisplayName("포인트 사용시 사용 내역이 저장된다.")
+    void 포인트_사용시_사용_내역이_저장된다() {
+        // given
+        Long id = 1L;
+        Long usePoint = 2_000L;
+        given(userPointTable.selectById(id)).willReturn(new UserPoint(id, 2_000, System.currentTimeMillis()));
+
+        // when
+        pointService.use(id, usePoint);
+
+        // then
+        verify(pointHistoryService).saveUseHistory(eq(id), eq(usePoint));
+
+    }
+
+
 
 }

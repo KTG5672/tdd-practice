@@ -9,12 +9,14 @@ public class PointService {
     private final UserPointTable userPointTable;
     private final PointChargePolicy pointChargePolicy;
     private final PointUsePolicy pointUsePolicy;
+    private final PointHistoryService pointHistoryService;
 
     public PointService(UserPointTable userPointTable, PointChargePolicy pointChargePolicy,
-        PointUsePolicy pointUsePolicy) {
+        PointUsePolicy pointUsePolicy, PointHistoryService pointHistoryService) {
         this.userPointTable = userPointTable;
         this.pointChargePolicy = pointChargePolicy;
         this.pointUsePolicy = pointUsePolicy;
+        this.pointHistoryService = pointHistoryService;
     }
 
     public UserPoint charge(Long id, Long chargePoint) {
@@ -24,7 +26,9 @@ public class PointService {
         pointChargePolicy.validate(existingPoint, chargePoint);
 
         long pointSum = existingPoint + chargePoint;
-        return userPointTable.insertOrUpdate(id, pointSum);
+        UserPoint result = userPointTable.insertOrUpdate(id, pointSum);
+        pointHistoryService.saveChargeHistory(id, chargePoint);
+        return result;
     }
 
     public UserPoint use(Long id, Long usePoint) {
@@ -34,7 +38,10 @@ public class PointService {
         pointUsePolicy.validate(existingPoint, usePoint);
 
         long resultPoint = existingPoint - usePoint;
-        return userPointTable.insertOrUpdate(id, resultPoint);
+        UserPoint result = userPointTable.insertOrUpdate(id, resultPoint);
+
+        pointHistoryService.saveUseHistory(id, usePoint);
+        return result;
     }
 
     public UserPoint getUserPoint(Long id) {
