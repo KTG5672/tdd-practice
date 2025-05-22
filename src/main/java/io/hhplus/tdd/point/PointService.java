@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 public class PointService {
 
     private final UserPointTable userPointTable;
-    private final PointPolicy pointPolicy;
+    private final PointChargePolicy pointChargePolicy;
 
-    public PointService(UserPointTable userPointTable, PointPolicy pointPolicy) {
+    public PointService(UserPointTable userPointTable, PointChargePolicy pointChargePolicy) {
         this.userPointTable = userPointTable;
-        this.pointPolicy = pointPolicy;
+        this.pointChargePolicy = pointChargePolicy;
     }
 
     public UserPoint charge(Long id, Long chargePoint) {
         UserPoint userPoint = userPointTable.selectById(id);
         long existingPoint = userPoint.point();
 
-        pointPolicy.chargeValidate(existingPoint, chargePoint);
+        pointChargePolicy.validate(existingPoint, chargePoint);
 
         long pointSum = existingPoint + chargePoint;
         return userPointTable.insertOrUpdate(id, pointSum);

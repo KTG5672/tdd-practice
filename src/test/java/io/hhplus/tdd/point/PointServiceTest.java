@@ -21,13 +21,13 @@ public class PointServiceTest {
     UserPointTable userPointTable;
 
     @Mock
-    PointPolicy pointPolicy;
+    PointChargePolicy pointChargePolicy;
 
     PointService pointService;
 
     @BeforeEach
     void setUp() {
-        pointService = new PointService(userPointTable, pointPolicy);
+        pointService = new PointService(userPointTable, pointChargePolicy);
     }
 
     /**

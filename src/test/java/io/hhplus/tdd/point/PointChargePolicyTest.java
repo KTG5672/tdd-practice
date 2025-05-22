@@ -7,13 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class PointPolicyTest {
+public class PointChargePolicyTest {
 
-    PointPolicy pointPolicy;
+    PointChargePolicy pointChargePolicy;
 
     @BeforeEach
     void setUp() {
-        pointPolicy = new PointPolicy();
+        pointChargePolicy = new PointChargePolicy();
     }
 
     /**
@@ -29,7 +29,7 @@ public class PointPolicyTest {
 
         // when
         var result = assertThatThrownBy(
-            () -> pointPolicy.chargeValidate(existingPoint, chargePoint));
+            () -> pointChargePolicy.validate(existingPoint, chargePoint));
 
         // then
         result.isInstanceOf(IllegalStateException.class);
@@ -49,11 +49,12 @@ public class PointPolicyTest {
 
         // when
         var result = assertThatCode(
-            () -> pointPolicy.chargeValidate(existingPoint, chargePoint));
+            () -> pointChargePolicy.validate(existingPoint, chargePoint));
 
         // then
         result.doesNotThrowAnyException();
     }
+
     /**
      * 충전시 충전 포인트가 1점 미만(0점 이거나 음수)일 경우 예외를 발생시킨다.
      * 충전 포인트의 값이 0점 미만일 경우 유효한 충전이 아니므로 예외가 발생 되는지 검증한다.
@@ -67,11 +68,12 @@ public class PointPolicyTest {
 
         // when
         var result = assertThatThrownBy(
-            () -> pointPolicy.chargeValidate(existingPoint, chargePoint));
+            () -> pointChargePolicy.validate(existingPoint, chargePoint));
 
         // then
         result.isInstanceOf(IllegalArgumentException.class);
     }
+
     /**
      * 충전시 충전 포인트가 1점 이상일 경우 통과한다.
      * 충전 포인트의 값이 1점 이상일 경우 유효한 충전이므로 정상적으로 통과되는지 검증한다.
@@ -86,10 +88,11 @@ public class PointPolicyTest {
 
         // when
         var result = assertThatCode(
-            () -> pointPolicy.chargeValidate(existingPoint, chargePoint));
+            () -> pointChargePolicy.validate(existingPoint, chargePoint));
 
         // then
         result.doesNotThrowAnyException();
     }
+
 
 }
