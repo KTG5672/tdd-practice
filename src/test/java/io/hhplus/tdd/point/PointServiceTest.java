@@ -23,15 +23,18 @@ public class PointServiceTest {
     @Mock
     PointChargePolicy pointChargePolicy;
 
+    @Mock
+    PointUsePolicy pointUsePolicy;
+
     PointService pointService;
 
     @BeforeEach
     void setUp() {
-        pointService = new PointService(userPointTable, pointChargePolicy);
+        pointService = new PointService(userPointTable, pointChargePolicy, pointUsePolicy);
     }
 
     /**
-     * 처음 포인트를 충전하여 충전 정보를 반환받는다.
+     * 처음 포인트를 충전하여 충전 정보를 반환한다.
      * 충전 이력이 없는 사용자에 대하여 정상적으로 충전 수행되고 그 결과가 정확히 반환되는지 검증한다.
      */
     @Test
@@ -56,12 +59,12 @@ public class PointServiceTest {
 
 
     /**
-     * 충전 정보가 있는 사용자가 포인트를 충전하여 충전된 정보를 반환 한다.
+     * 충전 정보가 있는 사용자가 포인트를 충전하여 충전된 정보를 반환한다.
      * 충전 이력이 있는 사용자에 대하여 정상적으로 충전 수행되고 기존 포인트와 충전 포인트가 정확히
      * 합산되어 반환되는지 검증한다.
      */
     @Test
-    @DisplayName("충전 정보가 있는 사용자가 포인트를 충전하여 누적된 정보를 반환 한다.")
+    @DisplayName("충전 정보가 있는 사용자가 포인트를 충전하여 누적된 정보를 반환한다.")
     void 포인트를_충전하여_누적된_정보를_반환한다() {
 
         // given
@@ -83,6 +86,65 @@ public class PointServiceTest {
         assertThat(expectPoint).isEqualTo(actualPoint);
         assertThat(result.id()).isEqualTo(id);
         assertThat(result.point()).isEqualTo(actualPoint);
+    }
+
+    /**
+     * 포인트를 사용하면 포인트가 감산되어 저장되며 그 정보를 반환한다.
+     * 기존 포인트에서 사용 포인트를 차감하여 저장 되고, 정상적으로 잔여 포인트가 반영되는지 검증한다.
+     */
+    @Test
+    @DisplayName("포인트를 사용하면 포인트가 감산되어 저장되며 그 정보를 반환한다.")
+    void 포인트를_사용하면_포인트가_감산되며_그_정보를_반환한다() {
+        // given
+        Long id = 1L;
+        Long usePoint = 2_000L;
+        Long existingPoint = 3_000L;
+        given(userPointTable.selectById(id)).willReturn(new UserPoint(id, existingPoint, System.currentTimeMillis()));
+        ArgumentCaptor<Long> pointCaptor = ArgumentCaptor.forClass(Long.class);
+        given(userPointTable.insertOrUpdate(id, existingPoint - usePoint)).willReturn(
+            new UserPoint(id, existingPoint - usePoint, System.currentTimeMillis()));
+
+        // when
+        UserPoint result = pointService.use(id, usePoint);
+
+        // then
+        verify(userPointTable).insertOrUpdate(eq(id), pointCaptor.capture());
+        Long expectedPoint = existingPoint - usePoint;
+        Long actualPoint = pointCaptor.getValue();
+        assertThat(expectedPoint).isEqualTo(actualPoint);
+        assertThat(result.id()).isEqualTo(id);
+        assertThat(result.point()).isEqualTo(expectedPoint);
+
+    }
+
+
+    /**
+     * 포인트를 전부 사용하면 포인트가 0이 저장되며 그 정보를 반환한다.
+     * 기존 포인트와 같은 포인트를 사용하여 잔여 포인트가 0이 되어 저장되고, 그 정보를 반환하는지 검증한다.
+     */
+    @Test
+    @DisplayName("포인트를 전부 사용하면 포인트가 0이 저장되며 그 정보를 반환한다.(경계값 검증)")
+    void 포인트를_전부_사용하면_포인트가_0이_저장되며_그_정보를_반환한다() {
+        // given
+        Long id = 1L;
+        Long usePoint = 2_000L;
+        long existingPoint = 2_000L;
+        given(userPointTable.selectById(id)).willReturn(new UserPoint(id, existingPoint, System.currentTimeMillis()));
+        ArgumentCaptor<Long> pointCaptor = ArgumentCaptor.forClass(Long.class);
+        given(userPointTable.insertOrUpdate(id, 0)).willReturn(
+            new UserPoint(id, 0, System.currentTimeMillis()));
+
+        // when
+        UserPoint result = pointService.use(id, usePoint);
+
+        // then
+        verify(userPointTable).insertOrUpdate(eq(id), pointCaptor.capture());
+        Long expectedPoint = 0L;
+        Long actualPoint = pointCaptor.getValue();
+        assertThat(expectedPoint).isEqualTo(actualPoint);
+        assertThat(result.id()).isEqualTo(id);
+        assertThat(result.point()).isEqualTo(expectedPoint);
+
     }
 
 }
