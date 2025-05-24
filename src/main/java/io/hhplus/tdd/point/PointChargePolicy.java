@@ -21,11 +21,16 @@ public class PointChargePolicy {
      */
     public void validate(long existingPoint, long chargePoint) {
         if (chargePoint < MIN_CHARGE_POINT) {
-            throw new IllegalArgumentException("충전 금액은 0보다 커야 합니다.");
+            String msg = String.format("충전 금액은 0보다 커야 합니다. 보유 포인트 : %d, 충전 포인트: %d", existingPoint,
+                chargePoint);
+            throw new IllegalArgumentException(msg);
         }
 
         if (existingPoint + chargePoint > MAX_POINT) {
-            throw new IllegalStateException("포인트 최대 한도를 초과 하였습니다.");
+            String msg = String.format(
+                "포인트 최대 한도를 초과 하였습니다. 보유 포인트 : %d, 충전 포인트 : %d, 최대 한도 : %d", existingPoint,
+                chargePoint, MAX_POINT);
+            throw new IllegalStateException(msg);
         }
     }
 
