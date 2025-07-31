@@ -18,4 +18,9 @@ class TestExceptionController {
         throw new IllegalStateException("상태가 잘못되었습니다.");
     }
 
+    @GetMapping("/exception")
+    public void throwException() throws Exception {
+        throw new Exception("에러가 발생했습니다.");
+    }
+
 }

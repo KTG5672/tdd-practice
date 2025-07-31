@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ff8865d3-b85f-4079-9cf0-0bcfcb9034af" name="Changes" comment="chore: 코드 리뷰 피드백 반영&#10;- 충전, 사용 정책 Exception 메시지 구체화&#10;- 충전 정책에서 보유/충전/최대한도 포인트를 메세지에 추가하여 편의성 제공&#10;- 사용 정책에서 보유/사용 포인트를 메세지에 추가하여 편의성 제공">
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/b6735f406f36c51adcd843f79dd8920e367718e7/sources/org/gradle/accessors/dm/LibrariesForLibs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/b6735f406f36c51adcd843f79dd8920e367718e7/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.4/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/jacoco/test.exec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointChargePolicyTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointControllerTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointHistoryIntegrationTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointHistoryServiceTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointServiceIntegrationTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointServiceTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/io.hhplus.tdd.point.PointUsePolicyTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/io.hhplus.tdd.point.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointChargePolicyTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointControllerTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointHistoryIntegrationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointHistoryServiceTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointServiceIntegrationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointServiceTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-io.hhplus.tdd.point.PointUsePolicyTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_3a83c50b4a016f281c4e9f3500d16b55/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_3a83c50b4a016f281c4e9f3500d16b55/META-INF/maven/org.jacoco/org.jacoco.agent/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_3a83c50b4a016f281c4e9f3500d16b55/META-INF/maven/org.jacoco/org.jacoco.agent/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_3a83c50b4a016f281c4e9f3500d16b55/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_3a83c50b4a016f281c4e9f3500d16b55/jacocoagent.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PointChargePolicy.class.uniqueId2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PointController.class.uniqueId3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PointHistoryService.class.uniqueId4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PointService.class.uniqueId1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PointUsePolicy.class.uniqueId0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hhplus/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/pull_request_template.md" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.github/pull_request_template.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ktlint-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/ktlint-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/ApiControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/ApiControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/TddApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/TddApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/database/UserPointTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/database/UserPointTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointChargePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/PointChargePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/PointController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/PointHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/PointHistoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointUsePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/PointUsePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/TransactionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/UserPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/java/io/hhplus/tdd/point/UserPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/ApiControllerAdviceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/ApiControllerAdviceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/TestExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/TestExceptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointChargePolicyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointChargePolicyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointHistoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointHistoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointHistoryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointHistoryServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointServiceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointServiceIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointUsePolicyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm/src/test/java/io/hhplus/tdd/point/PointUsePolicyTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/hhplus-tdd-jvm">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/hhplus-tdd-jvm">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KTG5672&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KTG5672/tdd-practice.git&quot;,
+    &quot;accountId&quot;: &quot;45475c17-2aa9-4e2d-8530-df8c403c6483&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2do7wYRUvUCj6edZEX3807ez5Vy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.ApiControllerAdviceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build hhplus-tdd-jvm.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build tdd-practice.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointChargePolicyTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointControllerTest.포인트_사용_예외_발생시_에러_응답을_반환한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointControllerTest.포인트_충전_시_에러_응답을_반환한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointHistoryIntegrationTest.포인트_충전_사용_내역을_저장하고_목록을_조회한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointHistoryIntegrationTest.포인트_충전_사용_내역을_저장하고_전체내역을_조회한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointHistoryServiceTest.포인트_사용_히스토리를_정상적으로_저장한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointHistoryServiceTest.포인트_충전_로그를_정상적으로_저장한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointPolicyTest.충전시_충전_포인트가_1점_미만이면_예외를_발생시킨다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointPolicyTest.충전시_충전할_포인트가_1점_이상이면_통과한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointPolicyTest.충전시_합산_포인트가_최대한도_이하면_통과한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointPolicyTest.충전시_합산_포인트가_최대한도를_넘으면_예외를_발생시킨다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.chargePoint_first.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.재충전하여_포인트를_합산한_충전정보를_반환한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.처음_충전시_충전정보를_반환한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.포인트_사용시_사용_내역이_저장된다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.포인트_충전시_충전_내역이_저장된다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.포인트를_사용하여_포인트가_감산되고_그_정보를_반환한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointServiceTest.포인트를_충전하여_누적된_정보를_반환한다.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PointUsePolicyTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'io.hhplus.tdd.point'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.hhplus-tdd-jvm [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.hhplus-tdd-jvm [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TddApplication.executor&quot;: &quot;Run&quot;,
+    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/point-charge-use-history&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a0000/dev/tdd-practice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="io.hhplus.tdd.point" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/hhplus/src" />
+      <recent name="$PROJECT_DIR$/hhplus" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="io.hhplus.tdd.point" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="io.hhplus.tdd" />
+      <recent name="io.hhplus.tdd.point" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.hhplus-tdd-jvm [build]">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="tdd-practice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="tdd-practice" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.포인트_충전_시_에러_응답을_반환한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.포인트_충전_시_에러_응답을_반환한다&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.포인트_사용_예외_발생시_에러_응답을_반환한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.포인트_사용_예외_발생시_에러_응답을_반환한다&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.포인트_사용_예외_발생시_에러_응답을_반환한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.포인트_사용_예외_발생시_에러_응답을_반환한다&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointServiceIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointServiceIntegrationTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointServiceIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointServiceIntegrationTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointServiceTest.포인트를_충전하여_누적된_정보를_반환한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointServiceTest.포인트를_충전하여_누적된_정보를_반환한다&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'io.hhplus.tdd.point'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'io.hhplus.tdd.point'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="hhplus-tdd-jvm [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hhplus-tdd-jvm" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="hhplus-tdd-jvm [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hhplus-tdd-jvm" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="tdd-practice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="tdd-practice" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TddApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="hhplus-tdd-jvm.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.hhplus.tdd.TddApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TddApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="hhplus-tdd-jvm.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.hhplus.tdd.TddApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.hhplus-tdd-jvm [build]" />
+        <item itemvalue="Gradle.hhplus-tdd-jvm [clean]" />
+        <item itemvalue="Gradle.Tests in 'io.hhplus.tdd.point'" />
+        <item itemvalue="Gradle.PointServiceIntegrationTest" />
+        <item itemvalue="Gradle.PointControllerTest.포인트_사용_예외_발생시_에러_응답을_반환한다" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff8865d3-b85f-4079-9cf0-0bcfcb9034af" name="Changes" comment="" />
+      <created>1710662815938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710662815938</updated>
+      <workItem from="1710662817309" duration="2568000" />
+      <workItem from="1747750304518" duration="943000" />
+      <workItem from="1747751258097" duration="1566000" />
+      <workItem from="1747830872713" duration="8517000" />
+      <workItem from="1747909937035" duration="21927000" />
+      <workItem from="1748071772831" duration="3338000" />
+      <workItem from="1748177931395" duration="1243000" />
+      <workItem from="1748270954315" duration="1413000" />
+      <workItem from="1748353391576" duration="598000" />
+      <workItem from="1748432743784" duration="597000" />
+      <workItem from="1748522032351" duration="598000" />
+      <workItem from="1748957539637" duration="2972000" />
+      <workItem from="1749041025576" duration="1217000" />
+      <workItem from="1749125479832" duration="598000" />
+      <workItem from="1749193927624" duration="597000" />
+      <workItem from="1749364825724" duration="4807000" />
+      <workItem from="1749480977836" duration="607000" />
+      <workItem from="1749562566232" duration="598000" />
+      <workItem from="1749641918398" duration="1217000" />
+      <workItem from="1749732798192" duration="594000" />
+      <workItem from="1749743626584" duration="1575000" />
+      <workItem from="1749988072311" duration="598000" />
+      <workItem from="1750076917104" duration="598000" />
+      <workItem from="1750163629771" duration="598000" />
+      <workItem from="1750249613761" duration="598000" />
+      <workItem from="1750336907813" duration="598000" />
+      <workItem from="1750339611157" duration="613000" />
+      <workItem from="1750494542990" duration="888000" />
+      <workItem from="1753713772998" duration="1562000" />
+      <workItem from="1753968577871" duration="2706000" />
+      <workItem from="1753972864295" duration="28000" />
+    </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1747752033355</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747752033355</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 포인트 충전 기능 및 단위 테스트 추가&#10;- PointService.charge() 메서드 구현&#10;- 최초 충전 및 누적 충전 테스트 코드 작성">
+      <option name="closed" value="true" />
+      <created>1747837540514</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747837540514</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor: 테스트 라이브러리 변경&#10;- org.junit.jupiter.api.Assertions -&gt; org.assertj.core.api.Assertions&#10;- 가독성이 더 돋보여서 라이브러리 변경">
+      <option name="closed" value="true" />
+      <created>1747839491096</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747839491096</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: 포인트 충전 정책 및 테스트 코드 추가&#10;- PointPolicy.chargeValidate 메서드 구현&#10;- 포인트 최대한도 검증 로직 추가&#10;- 충전 포인트(1점) 검증 로직 추가&#10;- 관련 단위 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1747914089260</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747914089260</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: PointService 에 PointPolicy 의존성 및 검증 로직 추가&#10;- PointService.charge 메서드에서 PointPolicy.chargeValidate 호출&#10;- 포인트 충전 시 정책 기반 검증 추가">
+      <option name="closed" value="true" />
+      <created>1747914783437</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747914783438</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor: PointPolicy -&gt; PointChargePolicy 클래스명 변경&#10;- 기존 포인트 정책 클래스를 충전 정책 클래스로 분리&#10;- 명확성을 위하여 클래스명 리네이밍">
+      <option name="closed" value="true" />
+      <created>1747916200222</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747916200222</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 포인트 사용 정책 및 테스트 코드 추가&#10;- PointUsePolicy.validate 메서드 구현&#10;- 사용 포인트가 기존 포인트를 초과하지 않는지 검증하는 정책 로직 추가">
+      <option name="closed" value="true" />
+      <created>1747916443641</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747916443641</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 포인트 사용 기능 및 단위 테스트 추가&#10;- PointService.use() 메서드 구현&#10;- 사용 및 최대 사용 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1747919473394</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747919473394</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: 포인트 조회 기능 및 단위 테스트 추가&#10;- PointService.getUserPoint() 메서드 구현&#10;- 사용자 포인트 조회시 정상적 반환 되는지 테스트 코드 작성&#10;- 포인트 정보가 없는 사용자의 포인트 조회시 0포인트가 디폴트로 반환 되는지 테스트 코드 작성">
+      <option name="closed" value="true" />
+      <created>1747920435853</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747920435853</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: 포인트 충전/사용 내역 저장 기능 및 테스트 코드 추가&#10;- PointHistoryService.saveChargeHistory 메서드 구현&#10;- PointHistoryService.saveUseHistory 메서드 구현&#10;- 충전/사용 내역을 실제 테이블 저장하는지 검증 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1747922609007</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747922609007</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: 포인트 충전/사용 내역 조회 기능 및 테스트 코드 추가&#10;- PointHistoryService.getHistories 메서드 구현&#10;- 충전/사용 내역을 실제 객체를 사용하여 저장 후 전체내역 조회 검증 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1747924020522</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747924020522</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: PointService 에 PointHistoryService 의존성 및 저장 로직 추가&#10;- PointService.charge 메서드에서 PointHistoryService.saveChargeHistory 호출&#10;- PointService.use 메서드에서 PointHistoryService.saveUseHistory 호출&#10;- 포인트 충전시 내역 저장 로직 추가&#10;- 포인트 사용시 내역 저장 로직 추가">
+      <option name="closed" value="true" />
+      <created>1747925176102</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747925176102</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: IllegalArgumentException, IllegalStateException 공통 예외 처리 기능 및 테스트 코드 추가&#10;- ApiControllerAdvice.handleIllegalArgumentException 메서드 구현&#10;- ApiControllerAdvice.handleIllegalStateException 메서드 구현&#10;- IllegalArgumentException 예외 발생시 400 코드 및 메세지 반환 테스트 코드 추가&#10;- IllegalStateException 예외 발생시 400 코드 및 메세지 반환 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1747927044391</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747927044391</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: 포인트 API 기능 구현 및 컨트롤러 테스트 추가&#10;- PointController: 포인트 조회, 충전, 사용, 내역 조회 API 구현&#10;- 정상 및 예외 케이스에 대한 컨트롤러 테스트 코드 작성">
+      <option name="closed" value="true" />
+      <created>1747928825949</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747928825949</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: 포인트 충전/사용 동시성 제어 및 테스트 코드 추가&#10;- PointService.charge 메서드에서 ReentrantLock을 적용하여 동시성 보장&#10;- PointService.use 메서드에서 ReentrantLock을 적용하여 동시성 보장&#10;- CountDownLatch 및 CompletableFuture를 사용하여 통합 테스트 추가">
+      <option name="closed" value="true" />
+      <created>1747931687460</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747931687460</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chore: 코드 리뷰 피드백 반영&#10;- 각 클래스 및 메서드 주석 추가">
+      <option name="closed" value="true" />
+      <created>1748075636577</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1748075636577</updated>
+    </task>
+    <task id="LOCAL-00017" summary="chore: 코드 리뷰 피드백 반영&#10;- 충전, 사용 정책 Exception 메시지 구체화&#10;- 충전 정책에서 보유/충전/최대한도 포인트를 메세지에 추가하여 편의성 제공&#10;- 사용 정책에서 보유/사용 포인트를 메세지에 추가하여 편의성 제공">
+      <option name="closed" value="true" />
+      <created>1748075993537</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1748075993537</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="c0e5d9c0-05a7-4599-aa43-abb5c7f693fd" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="c0e5d9c0-05a7-4599-aa43-abb5c7f693fd">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <MESSAGE value="feat: 포인트 충전 기능 및 단위 테스트 추가&#10;- PointService.charge() 메서드 구현&#10;- 최초 충전 및 누적 충전 테스트 코드 작성" />
+    <MESSAGE value="refactor: 테스트 라이브러리 변경&#10;- org.junit.jupiter.api.Assertions -&gt; org.assertj.core.api.Assertions&#10;- 가독성이 더 돋보여서 라이브러리 변경" />
+    <MESSAGE value="feat: 포인트 충전 정책 및 테스트 코드 추가&#10;- PointPolicy.chargeValidate 메서드 구현&#10;- 포인트 최대한도 검증 로직 추가&#10;- 충전 포인트(1점) 검증 로직 추가&#10;- 관련 단위 테스트 코드 추가" />
+    <MESSAGE value="feat: PointService 에 PointPolicy 의존성 및 검증 로직 추가&#10;- PointService.charge 메서드에서 PointPolicy.chargeValidate 호출&#10;- 포인트 충전 시 정책 기반 검증 추가" />
+    <MESSAGE value="refactor: PointPolicy -&gt; PointChargePolicy 클래스명 변경&#10;- 기존 포인트 정책 클래스를 충전 정책 클래스로 분리&#10;- 명확성을 위하여 클래스명 리네이밍" />
+    <MESSAGE value="feat: 포인트 사용 정책 및 테스트 코드 추가&#10;- PointUsePolicy.validate 메서드 구현&#10;- 사용 포인트가 기존 포인트를 초과하지 않는지 검증하는 정책 로직 추가" />
+    <MESSAGE value="feat: 포인트 사용 기능 및 단위 테스트 추가&#10;- PointService.use() 메서드 구현&#10;- 사용 및 최대 사용 테스트 코드 추가" />
+    <MESSAGE value="feat: 포인트 조회 기능 및 단위 테스트 추가&#10;- PointService.getUserPoint() 메서드 구현&#10;- 사용자 포인트 조회시 정상적 반환 되는지 테스트 코드 작성&#10;- 포인트 정보가 없는 사용자의 포인트 조회시 0포인트가 디폴트로 반환 되는지 테스트 코드 작성" />
+    <MESSAGE value="feat: 포인트 충전/사용 내역 저장 기능 및 테스트 코드 추가&#10;- PointHistoryService.saveChargeHistory 메서드 구현&#10;- PointHistoryService.saveUseHistory 메서드 구현&#10;- 충전/사용 내역을 실제 테이블 저장하는지 검증 테스트 코드 추가" />
+    <MESSAGE value="feat: 포인트 충전/사용 내역 조회 기능 및 테스트 코드 추가&#10;- PointHistoryService.getHistories 메서드 구현&#10;- 충전/사용 내역을 실제 객체를 사용하여 저장 후 전체내역 조회 검증 테스트 코드 추가" />
+    <MESSAGE value="feat: PointService 에 PointHistoryService 의존성 및 저장 로직 추가&#10;- PointService.charge 메서드에서 PointHistoryService.saveChargeHistory 호출&#10;- PointService.use 메서드에서 PointHistoryService.saveUseHistory 호출&#10;- 포인트 충전시 내역 저장 로직 추가&#10;- 포인트 사용시 내역 저장 로직 추가" />
+    <MESSAGE value="feat: IllegalArgumentException, IllegalStateException 공통 예외 처리 기능 및 테스트 코드 추가&#10;- ApiControllerAdvice.handleIllegalArgumentException 메서드 구현&#10;- ApiControllerAdvice.handleIllegalStateException 메서드 구현&#10;- IllegalArgumentException 예외 발생시 400 코드 및 메세지 반환 테스트 코드 추가&#10;- IllegalStateException 예외 발생시 400 코드 및 메세지 반환 테스트 코드 추가" />
+    <MESSAGE value="feat: 포인트 API 기능 구현 및 컨트롤러 테스트 추가&#10;- PointController: 포인트 조회, 충전, 사용, 내역 조회 API 구현&#10;- 정상 및 예외 케이스에 대한 컨트롤러 테스트 코드 작성" />
+    <MESSAGE value="feat: 포인트 충전/사용 동시성 제어 및 테스트 코드 추가&#10;- PointService.charge 메서드에서 ReentrantLock을 적용하여 동시성 보장&#10;- PointService.use 메서드에서 ReentrantLock을 적용하여 동시성 보장&#10;- CountDownLatch 및 CompletableFuture를 사용하여 통합 테스트 추가" />
+    <MESSAGE value="chore: 코드 리뷰 피드백 반영&#10;- 각 클래스 및 메서드 주석 추가" />
+    <MESSAGE value="chore: 코드 리뷰 피드백 반영&#10;- 충전, 사용 정책 Exception 메시지 구체화&#10;- 충전 정책에서 보유/충전/최대한도 포인트를 메세지에 추가하여 편의성 제공&#10;- 사용 정책에서 보유/사용 포인트를 메세지에 추가하여 편의성 제공" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: 코드 리뷰 피드백 반영&#10;- 충전, 사용 정책 Exception 메시지 구체화&#10;- 충전 정책에서 보유/충전/최대한도 포인트를 메세지에 추가하여 편의성 제공&#10;- 사용 정책에서 보유/사용 포인트를 메세지에 추가하여 편의성 제공" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
