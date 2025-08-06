@@ -42,4 +42,12 @@ public class PasswordStrengthMeterTest {
         return meter.meter(password);
     }
 
+    @Test
+    void 패스워드가_null_또는_빈값일_경우_유효하지_않음() {
+        PasswordLevel resultFromNull = getPasswordLevel(null);
+        assertThat(resultFromNull).isEqualTo(PasswordLevel.INVALID);
+        PasswordLevel resultFromEmpty = getPasswordLevel("");
+        assertThat(resultFromEmpty).isEqualTo(PasswordLevel.INVALID);
+    }
+
 }
