@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - 암호 강도
  *  3개 - "강함"
  *  2개 - "보통"
- *  1개 - "약함"
+ *  1개 이하 - "약함"
  *  빈 값 - "유효하지 않음"
  */
 
@@ -55,5 +55,12 @@ public class PasswordStrengthMeterTest {
         PasswordLevel result = getPasswordLevel("ab12cdefgh");
         assertThat(result).isEqualTo(PasswordLevel.NORMAL);
     }
+
+    @Test
+    void 조건_중_길아거_8글자_이상인_조건만_충족한_경우_강도는_약함() {
+        PasswordLevel result = getPasswordLevel("abcdefghig");
+        assertThat(result).isEqualTo(PasswordLevel.WEAK);
+    }
+
 
 }
