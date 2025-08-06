@@ -9,9 +9,18 @@ public class PasswordStrengthMeter {
         if (password.length() < 8) {
             return PasswordLevel.NORMAL;
         }
-
-        boolean containNumber = hasNumber(password);
-        if (!containNumber) {
+        boolean containsNumber = hasNumber(password);
+        if (!containsNumber) {
+            return PasswordLevel.NORMAL;
+        }
+        boolean containsUppercase = false;
+        for (char c : password.toCharArray()) {
+            if (c >= 'A' && c <= 'Z') {
+                containsUppercase = true;
+                break;
+            }
+        }
+        if (!containsUppercase) {
             return PasswordLevel.NORMAL;
         }
         return PasswordLevel.STRONG;
