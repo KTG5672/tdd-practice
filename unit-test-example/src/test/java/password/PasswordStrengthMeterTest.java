@@ -1,6 +1,7 @@
 package password;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -21,7 +22,7 @@ public class PasswordStrengthMeterTest {
     void 모든_조건을_충족하는_경우_강도는_강함() {
         PasswordStrengthMeter meter = new PasswordStrengthMeter();
         PasswordLevel level = meter.meter("A1bcdefg");
-        Assertions.assertThat(level).isEqualTo(PasswordLevel.STRONG);
+        assertThat(level).isEqualTo(PasswordLevel.STRONG);
     }
 
 }
