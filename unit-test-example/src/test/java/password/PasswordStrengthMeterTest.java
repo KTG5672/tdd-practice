@@ -14,29 +14,32 @@ import org.junit.jupiter.api.Test;
  *  3개 - "강함"
  *  2개 - "보통"
  *  1개 - "약함"
+ *  빈 값 - "유효하지 않음"
  */
 
 public class PasswordStrengthMeterTest {
 
     @Test
     void 모든_조건을_충족하는_경우_강도는_강함() {
-        PasswordStrengthMeter meter = new PasswordStrengthMeter();
-        PasswordLevel level = meter.meter("A1bcdefg");
+        PasswordLevel level = getPasswordLevel("A1bcdefg");
         assertThat(level).isEqualTo(PasswordLevel.STRONG);
     }
 
     @Test
     void 조건_중_길이가_8글자_미만인_경우_강도는_보통() {
-        PasswordStrengthMeter meter = new PasswordStrengthMeter();
-        PasswordLevel level = meter.meter("Ab12345");
+        PasswordLevel level = getPasswordLevel("Ab12345");
         assertThat(level).isEqualTo(PasswordLevel.NORMAL);
     }
 
     @Test
     void 조건_중_숫자를_포함하지않은_경우_강도는_보통() {
-        PasswordStrengthMeter meter = new PasswordStrengthMeter();
-        PasswordLevel level = meter.meter("Abcdefgh");
+        PasswordLevel level = getPasswordLevel("Abcdefgh");
         assertThat(level).isEqualTo(PasswordLevel.NORMAL);
+    }
+
+    private static PasswordLevel getPasswordLevel(String password) {
+        PasswordStrengthMeter meter = new PasswordStrengthMeter();
+        return meter.meter(password);
     }
 
 }
