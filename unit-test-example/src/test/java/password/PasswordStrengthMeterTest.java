@@ -50,4 +50,10 @@ public class PasswordStrengthMeterTest {
         assertThat(resultFromEmpty).isEqualTo(PasswordLevel.INVALID);
     }
 
+    @Test
+    void 조건_중_대문자를_포함하지않은_경우_강도는_보통() {
+        PasswordLevel result = getPasswordLevel("ab12cdefgh");
+        assertThat(result).isEqualTo(PasswordLevel.NORMAL);
+    }
+
 }
