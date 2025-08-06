@@ -68,5 +68,11 @@ public class PasswordStrengthMeterTest {
         assertThat(result).isEqualTo(PasswordLevel.WEAK);
     }
 
+    @Test
+    void 조건_중_숫자_포함_조건만_충족한_경우_강도는_약함() {
+        PasswordLevel result = getPasswordLevel("a1cde");
+        assertThat(result).isEqualTo(PasswordLevel.WEAK);
+    }
+
 
 }
