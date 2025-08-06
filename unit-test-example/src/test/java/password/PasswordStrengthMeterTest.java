@@ -32,4 +32,11 @@ public class PasswordStrengthMeterTest {
         assertThat(level).isEqualTo(PasswordLevel.NORMAL);
     }
 
+    @Test
+    void 조건_중_숫자를_포함하지않은_경우_강도는_보통() {
+        PasswordStrengthMeter meter = new PasswordStrengthMeter();
+        PasswordLevel level = meter.meter("Abcdefgh");
+        assertThat(level).isEqualTo(PasswordLevel.NORMAL);
+    }
+
 }
