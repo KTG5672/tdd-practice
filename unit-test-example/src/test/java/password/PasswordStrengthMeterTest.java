@@ -57,8 +57,14 @@ public class PasswordStrengthMeterTest {
     }
 
     @Test
-    void 조건_중_길아거_8글자_이상인_조건만_충족한_경우_강도는_약함() {
+    void 조건_중_길이가_8글자_이상인_조건만_충족한_경우_강도는_약함() {
         PasswordLevel result = getPasswordLevel("abcdefghig");
+        assertThat(result).isEqualTo(PasswordLevel.WEAK);
+    }
+
+    @Test
+    void 조건_중_대문자_포함_조건만_충족한_경우_강도는_약함() {
+        PasswordLevel result = getPasswordLevel("aBcde");
         assertThat(result).isEqualTo(PasswordLevel.WEAK);
     }
 
