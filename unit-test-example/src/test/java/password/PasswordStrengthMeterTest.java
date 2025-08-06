@@ -25,4 +25,11 @@ public class PasswordStrengthMeterTest {
         assertThat(level).isEqualTo(PasswordLevel.STRONG);
     }
 
+    @Test
+    void 조건_중_길이가_8글자_미만인_경우_강도는_보통() {
+        PasswordStrengthMeter meter = new PasswordStrengthMeter();
+        PasswordLevel level = meter.meter("Ab12345");
+        assertThat(level).isEqualTo(PasswordLevel.NORMAL);
+    }
+
 }
