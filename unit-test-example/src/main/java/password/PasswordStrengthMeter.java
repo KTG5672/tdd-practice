@@ -13,13 +13,7 @@ public class PasswordStrengthMeter {
         if (!containsNumber) {
             return PasswordLevel.NORMAL;
         }
-        boolean containsUppercase = false;
-        for (char c : password.toCharArray()) {
-            if (c >= 'A' && c <= 'Z') {
-                containsUppercase = true;
-                break;
-            }
-        }
+        boolean containsUppercase = hasUppercase(password);
         if (!containsUppercase) {
             return PasswordLevel.NORMAL;
         }
@@ -30,6 +24,16 @@ public class PasswordStrengthMeter {
         char[] charArray = password.toCharArray();
         for (char c : charArray) {
             if (c >= '0' && c <= '9') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasUppercase(String password) {
+        char[] charArray = password.toCharArray();
+        for (char c : charArray) {
+            if (c >= 'A' && c <= 'Z') {
                 return true;
             }
         }
