@@ -6,28 +6,29 @@ public class PasswordStrengthMeter {
         if (password == null || password.isEmpty()) {
             return PasswordLevel.INVALID;
         }
-        boolean hasEnoughLength = password.length() >= 8;
-        boolean containsNumber = hasNumber(password);
-        boolean containsUppercase = hasUppercase(password);
-        if (hasEnoughLength && !containsNumber && !containsUppercase) {
-            return PasswordLevel.WEAK;
+        int meterCount = 0;
+        if (hasEnoughLength(password)) {
+            meterCount++;
         }
-        if (!hasEnoughLength && !containsNumber && containsUppercase) {
-            return PasswordLevel.WEAK;
+        if (hasNumber(password)) {
+            meterCount++;
         }
-        if (!hasEnoughLength && containsNumber && !containsUppercase) {
-            return PasswordLevel.WEAK;
+        if (hasUppercase(password)) {
+            meterCount++;
         }
-        if (!hasEnoughLength) {
-            return PasswordLevel.NORMAL;
-        }
-        if (!containsNumber) {
-            return PasswordLevel.NORMAL;
-        }
-        if (!containsUppercase) {
-            return PasswordLevel.NORMAL;
-        }
-        return PasswordLevel.STRONG;
+        return calculateStrength(meterCount);
+    }
+
+    private PasswordLevel calculateStrength(int meterCount) {
+        return switch (meterCount) {
+            case 0, 1 -> PasswordLevel.WEAK;
+            case 2 -> PasswordLevel.NORMAL;
+            default -> PasswordLevel.STRONG;
+        };
+    }
+
+    private boolean hasEnoughLength(String password) {
+        return password.length() >= 8;
     }
 
     private boolean hasNumber(String password) {
