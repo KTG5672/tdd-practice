@@ -20,7 +20,14 @@ public class ExpiryDateCalculatorTest {
         ExpiryDateCalculator expiryDateCalculator = new ExpiryDateCalculator();
         LocalDate expiryDate = expiryDateCalculator.calculate(billingDate, payAmount);
 
-        assertThat(expiryDate).isEqualTo(billingDate.plusDays(1));
+        assertThat(expiryDate).isEqualTo(billingDate.plusMonths(1));
+
+        LocalDate billingDate2 = LocalDate.of(2025, 8, 15);
+        int payAmount2 = 10_000;
+
+        LocalDate expiryDate2 = expiryDateCalculator.calculate(billingDate2, payAmount2);
+
+        assertThat(expiryDate2).isEqualTo(billingDate2.plusMonths(1));
     }
 
 
