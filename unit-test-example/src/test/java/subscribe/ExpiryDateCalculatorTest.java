@@ -14,21 +14,15 @@ public class ExpiryDateCalculatorTest {
 
     @Test
     void 만원을_납부하면_한달_뒤가_만료일이_된다() {
-        LocalDate billingDate = LocalDate.of(2025, 8, 13);
-        int payAmount = 10_000;
-
-        ExpiryDateCalculator expiryDateCalculator = new ExpiryDateCalculator();
-        LocalDate expiryDate = expiryDateCalculator.calculate(billingDate, payAmount);
-
-        assertThat(expiryDate).isEqualTo(billingDate.plusMonths(1));
-
-        LocalDate billingDate2 = LocalDate.of(2025, 8, 15);
-        int payAmount2 = 10_000;
-
-        LocalDate expiryDate2 = expiryDateCalculator.calculate(billingDate2, payAmount2);
-
-        assertThat(expiryDate2).isEqualTo(billingDate2.plusMonths(1));
+        assertExpiryDate(LocalDate.of(2025, 8, 15), 10_000, LocalDate.of(2025, 9, 15));
+        assertExpiryDate(LocalDate.of(2025, 8, 13), 10_000, LocalDate.of(2025, 9, 13));
     }
 
+    void assertExpiryDate(LocalDate billingDate, int payAmount,
+        LocalDate exceptExpiryDate) {
+        ExpiryDateCalculator expiryDateCalculator = new ExpiryDateCalculator();
+        LocalDate actualExpiryDate = expiryDateCalculator.calculate(billingDate, payAmount);
+        assertThat(actualExpiryDate).isEqualTo(exceptExpiryDate);
+    }
 
 }
