@@ -15,5 +15,6 @@ public class PayData {
 
     private LocalDate billingDate;
     private int payAmount;
+    private LocalDate firstBillingDate;
 
 }
