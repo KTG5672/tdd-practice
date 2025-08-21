@@ -70,7 +70,7 @@ if (exceptStrList.contains(param)) return false;
 > 
 > 구독 만료일 계산하는 로직에서 입력 값이 "결제일", "결제금액" 2개에서 첫 납부일에 따라 만료일이 변경 되는 테스트 케이스 작성하는 과정에서 "첫 결제일" 입력 값이 추가 됨
 
-# Chaper 5
+# Chapter 5
 ## JUnit
 - 자바 테스트 프레임워크
 - 버전은 5.x 을 많이 사용
