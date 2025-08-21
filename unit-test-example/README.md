@@ -69,3 +69,35 @@ if (exceptStrList.contains(param)) return false;
 > ID가 중복되어 회원가입이 실패하는 테스트를 작성하는 시점에 DuplicationIdException 클래스가 추가 됨
 > 
 > 구독 만료일 계산하는 로직에서 입력 값이 "결제일", "결제금액" 2개에서 첫 납부일에 따라 만료일이 변경 되는 테스트 케이스 작성하는 과정에서 "첫 결제일" 입력 값이 추가 됨
+
+# Chaper 5
+## JUnit
+- 자바 테스트 프레임워크
+- 버전은 5.x 을 많이 사용
+- Junit5 의 구현체는 JUpiter 를 사용하고, Junit3,4는 Vantage 를 사용
+### @Test
+- 테스트 클래스는 통상적으로 접미사로 ~Test 를 붙힘
+- @Test 어노테이션을 테스트할 메서드에 붙혀 사용 (private 메서드는 안됨)
+- Assertions 클래스의 정적 메서드(assertEquals 등)을 사용하여 테스트 검증
+```
+@Test
+void sum() {
+    int result = Math.addExact(2,3);
+    Assertions.assertEquals(5, result);
+}
+```
+
+### 라이프 사이클
+- @Test 가 붙은 메서드를 실행할 때 마다 테스트 클래스의 객체를 생성하고 실행
+- 테스트 메서드 실행 전 @BeforeEach 어노테이션이 붙은 메서드를 실행
+- 테스트 메서드 실행 후 @AfterEach 어노테이션이 붙은 메서드를 실행
+- 한 클래스의 모든 테스트 메서드가 실행 전 @BeforeAll 어노테이션이 붙은 정적 메서드를 실행 (정적 메서드가 아니면 컴파일 에러)
+- 한 클래스의 모든 테스트 메서드가 실행 후 @AfterAll 어노테이션이 붙은 정적 메서드를 실행 (정적 메서드가 아니면 컴파일 에러)
+
+>1. @BeforeAll 정적 메서드 실행
+>2. @Test 메서드가 있는 클래스 객체 생성
+>3. @BeforeEach 메서드 실행
+>4. @Test 메서드 실행
+>5. @AfterEach 메서드 실행
+>6. @Test 메서드 개수만큼 2,3,4,5 반복 실행
+>7. @AfterAll 정적 메서드 실행
