@@ -101,3 +101,45 @@ void sum() {
 >5. @AfterEach 메서드 실행
 >6. @Test 메서드 개수만큼 2,3,4,5 반복 실행
 >7. @AfterAll 정적 메서드 실행
+
+# Chapter 6
+## 테스트 코드 구성
+### 기능에서 상황
+- 기능은 주어진 상황에 따라 다르게 동작
+- 똑같이 실행 하였지만 주어진 상활에 따라 결과가 달라진다.
+```
+@Test
+void baseballGameTest() {
+    // 정답이 123인 상황
+    BaseballGame game1 = new BaseballGame("123");
+    Score score1 = game1.guess("456");
+    assertEquals(0, score1.srike());
+    // 정답이 456인 상황
+    BaseballGame game2 = new BaseballGame("456");
+    Score score2 = game2.guess("456");
+    assertEquals(3, score2.srike());
+}
+```
+
+### 테스트 코드 구성 요소
+- 테스트는 상황, 실행, 결과로 이루어 진다.
+- 상황은 @BeforeEach 를 적용한 메서드에서 설정할 수 도 있다.
+- 상황이 없는 경우도 존재
+```
+@Test
+void baseballGameTest() {
+    // 상황
+    BaseballGame game1 = new BaseballGame("123");
+    // 실행
+    Score score1 = game1.guess("456");
+    // 결과
+    assertEquals(0, score1.srike());
+}
+```
+
+### 외부 상황과 외부 결과
+- DB, 파일, 외부 API 같은 외부 상황을 이용할 경우가 존재
+- 파일의 경우 테스트 경로에 미리 파일을 생성하거나 기존 파일을 삭제 하여 일관성을 유지
+- DB의 경우 테스트 전 데이터를 미리 넣어놓고 실행 후 트랜잭션을 롤백하여 일관성을 유지
+- 외부 API의 경우 연결 불가나 응답 지연 상황을 미리 만들 수 없으므로 테스트가 어렵다.
+- **대역**을 사용하면 외부 상황에 대한 테스트 작성이 쉬워진다.
