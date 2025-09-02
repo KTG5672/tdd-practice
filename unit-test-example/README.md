@@ -69,3 +69,77 @@ if (exceptStrList.contains(param)) return false;
 > ID가 중복되어 회원가입이 실패하는 테스트를 작성하는 시점에 DuplicationIdException 클래스가 추가 됨
 > 
 > 구독 만료일 계산하는 로직에서 입력 값이 "결제일", "결제금액" 2개에서 첫 납부일에 따라 만료일이 변경 되는 테스트 케이스 작성하는 과정에서 "첫 결제일" 입력 값이 추가 됨
+
+# Chapter 5
+## JUnit
+- 자바 테스트 프레임워크
+- 버전은 5.x 을 많이 사용
+- Junit5 의 구현체는 JUpiter 를 사용하고, Junit3,4는 Vantage 를 사용
+### @Test
+- 테스트 클래스는 통상적으로 접미사로 ~Test 를 붙힘
+- @Test 어노테이션을 테스트할 메서드에 붙혀 사용 (private 메서드는 안됨)
+- Assertions 클래스의 정적 메서드(assertEquals 등)을 사용하여 테스트 검증
+```
+@Test
+void sum() {
+    int result = Math.addExact(2,3);
+    Assertions.assertEquals(5, result);
+}
+```
+
+### 라이프 사이클
+- @Test 가 붙은 메서드를 실행할 때 마다 테스트 클래스의 객체를 생성하고 실행
+- 테스트 메서드 실행 전 @BeforeEach 어노테이션이 붙은 메서드를 실행
+- 테스트 메서드 실행 후 @AfterEach 어노테이션이 붙은 메서드를 실행
+- 한 클래스의 모든 테스트 메서드가 실행 전 @BeforeAll 어노테이션이 붙은 정적 메서드를 실행 (정적 메서드가 아니면 컴파일 에러)
+- 한 클래스의 모든 테스트 메서드가 실행 후 @AfterAll 어노테이션이 붙은 정적 메서드를 실행 (정적 메서드가 아니면 컴파일 에러)
+
+>1. @BeforeAll 정적 메서드 실행
+>2. @Test 메서드가 있는 클래스 객체 생성
+>3. @BeforeEach 메서드 실행
+>4. @Test 메서드 실행
+>5. @AfterEach 메서드 실행
+>6. @Test 메서드 개수만큼 2,3,4,5 반복 실행
+>7. @AfterAll 정적 메서드 실행
+
+# Chapter 6
+## 테스트 코드 구성
+### 기능에서 상황
+- 기능은 주어진 상황에 따라 다르게 동작
+- 똑같이 실행 하였지만 주어진 상활에 따라 결과가 달라진다.
+```
+@Test
+void baseballGameTest() {
+    // 정답이 123인 상황
+    BaseballGame game1 = new BaseballGame("123");
+    Score score1 = game1.guess("456");
+    assertEquals(0, score1.srike());
+    // 정답이 456인 상황
+    BaseballGame game2 = new BaseballGame("456");
+    Score score2 = game2.guess("456");
+    assertEquals(3, score2.srike());
+}
+```
+
+### 테스트 코드 구성 요소
+- 테스트는 상황, 실행, 결과로 이루어 진다.
+- 상황은 @BeforeEach 를 적용한 메서드에서 설정할 수 도 있다.
+- 상황이 없는 경우도 존재
+```
+@Test
+void baseballGameTest() {
+    // 상황
+    BaseballGame game1 = new BaseballGame("123");
+    // 실행
+    Score score1 = game1.guess("456");
+    // 결과
+    assertEquals(0, score1.srike());
+}
+```
+
+### 외부 상황과 외부 결과
+- DB, 파일, 외부 API 같은 외부 상황을 이용할 경우가 존재
+- 파일의 경우 테스트 경로에 미리 파일을 생성하거나 기존 파일을 삭제 하여 일관성을 유지
+- DB의 경우 테스트 전 데이터를 미리 넣어놓고 실행 후 트랜잭션을 롤백하여 일관성을 유지
+- 외부 API의 경우 연결 불가나 응답 지연 상황을 미리 만들 수 없으므로 테스트가 어렵다.
+- **대역**을 사용하면 외부 상황에 대한 테스트 작성이 쉬워진다.
