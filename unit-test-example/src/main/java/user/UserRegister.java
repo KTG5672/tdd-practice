@@ -9,7 +9,9 @@ public class UserRegister {
     }
 
     public void register(String id, String password, String email) {
-        return;
+        if (weakPasswordChecker.check(password)) {
+            throw new WeakPasswordException();
+        }
     }
 
 
