@@ -15,10 +15,14 @@ public class UserRegister {
         if (weakPasswordChecker.check(password)) {
             throw new WeakPasswordException();
         }
+        validateDuplicateId(id);
+        userRepository.save(new User(id, password, email));
+    }
+
+    private void validateDuplicateId(String id) {
         userRepository.findById(id).ifPresent(user -> {
             throw new DupIdException();
         });
-        userRepository.save(new User(id, password, email));
     }
 
 
