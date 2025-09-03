@@ -15,11 +15,13 @@ public class UserRegisterTest {
 
     UserRegister userRegister;
     StubWeakPasswordChecker weakPasswordChecker;
+    FakeUserRepository fakeUserRepository;
 
     @BeforeEach
     void setUp() {
         weakPasswordChecker = new StubWeakPasswordChecker();
-        userRegister = new UserRegister(weakPasswordChecker);
+        fakeUserRepository = new FakeUserRepository();
+        userRegister = new UserRegister(weakPasswordChecker, fakeUserRepository);
     }
 
 
@@ -34,6 +36,8 @@ public class UserRegisterTest {
     @Test
     @DisplayName("이미 같은 ID가 존재하면 가입 실패")
     void dupIdExists() {
+        fakeUserRepository.save(new User("id", "pass", "email"));
+
         assertThatThrownBy(() -> userRegister.register("id", "pass", "email"))
             .isInstanceOf(DupIdException.class);
     }
