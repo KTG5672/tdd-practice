@@ -8,16 +8,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
- * 회원가입 서비스 테스트
- * - 암호가 약하면 가입이 불가
- * - 동일 ID 가 있을 시 가입이 불가
- * - 가입 완료 후 메일 발송
+ * 회원가입 서비스 테스트 - 암호가 약하면 가입이 불가 - 동일 ID 가 있을 시 가입이 불가 - 가입 완료 후 메일 발송
  */
 public class UserRegisterTest {
 
     UserRegister userRegister;
     StubWeakPasswordChecker weakPasswordChecker;
     FakeUserRepository fakeUserRepository;
+    SpyEmailNotifier emailNotifier;
 
     @BeforeEach
     void setUp() {
@@ -54,6 +52,16 @@ public class UserRegisterTest {
         assertThat(findUser.getId()).isEqualTo("id");
         assertThat(findUser.getPassword()).isEqualTo("pass");
         assertThat(findUser.getEmail()).isEqualTo("email");
+    }
+
+    @Test
+    @DisplayName("회원가입 완료 후 메일 발송")
+    void whenResisterThenSendMail() {
+        userRegister.register("id", "pass", "email");
+
+        assertThat(emailNotifier.isCalled()).isTrue();
+        assertThat(emailNotifier.getEmail()).isEqualTo("email");
+
     }
 
 }
