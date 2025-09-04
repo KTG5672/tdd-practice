@@ -21,7 +21,8 @@ public class UserRegisterTest {
     void setUp() {
         weakPasswordChecker = new StubWeakPasswordChecker();
         fakeUserRepository = new FakeUserRepository();
-        userRegister = new UserRegister(weakPasswordChecker, fakeUserRepository);
+        emailNotifier = new SpyEmailNotifier();
+        userRegister = new UserRegister(weakPasswordChecker, fakeUserRepository, emailNotifier);
     }
 
 
