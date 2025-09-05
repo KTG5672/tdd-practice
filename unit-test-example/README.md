@@ -143,3 +143,75 @@ void baseballGameTest() {
 - DB의 경우 테스트 전 데이터를 미리 넣어놓고 실행 후 트랜잭션을 롤백하여 일관성을 유지
 - 외부 API의 경우 연결 불가나 응답 지연 상황을 미리 만들 수 없으므로 테스트가 어렵다.
 - **대역**을 사용하면 외부 상황에 대한 테스트 작성이 쉬워진다.
+
+# Chapter 7
+## 대역
+- 실제 객체를 대신하여 동작하는 가짜 객체
+- 외부 요인 (파일, DB, 외부 통신)이 테스트에 관여하는 상황에서 주로 사용
+- 종류는 Stub, Fake, Spy, Mock 이 존재
+  - Stub : 구현을 단순한 것으로 대체, 테스트에 맞게 단순히 원하는 동작만 수행 (단순 반환 값만 주는 객체 등)
+  - Fake : 프로덕트 코드에는 적합하지 않지만 실제 동작하는 구현을 제공 (DB 대신 메모리 사용 등)
+  - Spy : 실제 동작을 하며 호출된 내역을 기록하고 테스트 결과에서 검증할 때 사용
+  - Mock : 호출 여부, 횟수, 순서 같은 행위 검증을 위한 객체
+
+```
+// Stub
+class StubPasswordChecker implements PasswordChecker {
+
+    @Override
+    public boolean check(String password) {
+        retrun true;
+    }
+
+}
+
+// Fake
+public class FakeUserRepository implements UserRepository {
+
+    private final Map<String, User> users = new HashMap<>();
+
+    @Override
+    public Optional<User> findById(String id) {
+        return Optional.ofNullable(users.get(id));
+    }
+
+    @Override
+    public void save(User user) {
+        users.put(user.getId(), user);
+    }
+}
+
+```
+- 대역을 이용하면 외부 요인에 의하여 테스트 및 개발이 지연되는 것을 방지 할 수 있다.
+- 외부 요인은 따로 클래스를 분리하여 대역을 만드는 것이 테스트가 용이
+- 당장 구현이 오래걸리는 로직도 별도 클래스로 분리하여 대역을 만드는 것도 테스트에 용이
+
+## Mockito
+- 자바 모의 객체 생성, 검증, 스텁을 지원하는 프레임워크
+- Mockito.mock 메서드로 모의 객체를 생성 가능 (클래스, 추상 클래스, 인터페이스 가능)
+- BDDMockito.given 메서드로 스텁을 정의할 모의 객체 메서드 호출을 전달하고 willReturn 메서드로 리턴 값을 지정
+- ArgumentMatchers.any 메서드로 스텁 설정 시 인자와 일치 여부를 확인하고 리턴 값을 지정 가능
+- BDDMockito.then 메서드로 실제 모의 객체가 특정 메서드를 호출하는지 검증
+- ArgumentCaptor 클래스를 이용하여 실제 메서드에 들어가는 인자를 캡처 가능
+```
+@Test
+void test() {
+    // 생성 
+    Game mockGame = Mockito.mock(Game.class);
+    // Stub
+    BDDMockito.given(mockGame.generate(Level.EASY)).willReturn("123");
+    // 일치된 인자 Stub
+    BDDMockito.given(mockGame.generate(ArgumentMatchers.any())).willReturn("123");
+    
+    String result = mockGame.generate(Level.EASY);
+    
+    // 호출 검증
+    BDDMockito.then(mockGame).should().generate(Level.EASY);
+    
+    // 인자 캡쳐
+    ArgumentCaptor<Level> captor = ArgumentCaptor.forClass(Level.class);
+    BDDMockito.then(mockGame).should().generate(captor.capture());
+    Level realLevel = captor.getValue();
+}
+
+```
